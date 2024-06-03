@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | Video {% endblock title %}
+   
+
+   <div class="">
+    {% block content %}
+         <div class="video-link">
+            <h1>Video Page</h1>
+           {% for blog in videos %}
+                  <div class="grid items-center justify-between grid-cols-3">
+                  <h2>{{ blog.caption }}</h2>
+               <a href="#">   
+                  <source>
+                    <video src="{{ blog.image.url }}"></video>
+                  </source>
+               </a>   
+                  <h3>{{ blog.content }}</h3>
+                  <p>{{ blog.public_date }}</p>
+                  </div> 
+            {% endfor %}
+         </div>
+    {% endblock content %}
+   </div>

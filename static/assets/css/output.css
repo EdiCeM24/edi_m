@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+   box-sizing: border-box;
+   font: 62.5px;
+}
+:root {
+   --primary-color: #203040;
+   --color-white: #ffffff;
+   --color-wit: #fff;
+   --color-teal: teal;
+   --color-gown: #ddd;
+   --color-cool: #FED086;
+}
+body {
+   margin: 0;
+   padding: 0;
+   height: 100vh;
+}
+/*------=====Header section of the page=====-------*/
+.myHeader {
+   display: flex;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 100;
+   padding: 10px;
+   align-items: center;
+   justify-content: space-between;
+   background: #ffffff;
+}
+@media screen and (max-width: 600px) {
+   .myHeader {
+      flex-wrap: wrap;
+      display: flex;
+   }
+   main {
+      flex-wrap: wrap;
+   }
+}
+.brand {
+   display: flex;
+   align-items: center;
+  
+   gap: 4%;
+}
+.brand a {
+   color: var(--primary-color);
+   text-decoration: none;
+   margin-left: -3%;
+   font-size: 3.5rem;
+   font-weight: 600;
+   -webkit-text-stroke: 3.5px indianred;
+}
+.product-links {
+   display: flex;
+   align-items: center;
+   gap: 15%;
+}
+.product-links a {
+   color: var(--primary-color);
+   text-decoration: none;
+   font-size: 1.6rem;
+   font-weight: bold;
+   -webkit-text-stroke: 2px indianred;
+}
+.auth-in {
+   display: flex;
+   align-items: center;
+  
+}
+.auth-in a {
+   color: var(--primary-color);
+   text-decoration: none;
+   font-size: 1.6rem;
+   font-weight: bold;
+   -webkit-text-stroke: 2px indianred;
+}
+.myHeader a:hover {
+   color: teal;
+   opacity: 1;
+   transition: all 0.5s ease-in-out;
+}
+.myHeader a:focus {
+   content: '';
+   text-decoration-color: tomato;
+   text-decoration-line: underline;
+}
+::placeholder {
+   text-align: center;
+}
+#text-id {
+   border: none;
+   outline: none;
+   width: 50%;
+   color: var(--primary-color);
+   font-size: 1rem;
+   font-weight: bold;
+   border-radius: 10px;
+}
+#text-id:hover {
+   background: var(--color-gown);
+}
+form button {
+   border: none;
+   outline: none;
+   background: var(--color-white);
+   color: var(--primary-color);
+   font-size: 1rem;
+   border-radius: 10px;
+   font-weight: bold;
+   cursor: pointer;
+}
+/*------=====Section of the page=====-------*/
+
+.images {
+   background-image: url('/static/images/img_pics/coffee.jpg');
+   padding: 90px;
+   align-items: center;
+   margin-top: 70%;
+   top: 70%;
+   margin: 180px 0px;
+   background-position: center;
+   object-fit: cover;
+   background-repeat: no-repeat;
+   background-size: 1150px;
+   border-radius: 20px;
+   color: rgb(22, 21, 21);
+   height: 70%;
+}
+/*------=====Main Section of the page=====-------*/
+.product-item {
+   display: grid;
+}
+.containers {
+   background: var(--color-gown);
+   display: cols-4;
+}
+.containers img {
+   border-radius: 20px;
+   align-items: center;
+   margin-left: 5%;
+}
+/*------=====video Section=====-------*/
+.hone {
+   display: inline;
+}
+/*------=====F00ter Section of the page=====-------*/
+.foot {
+   width: 100%;
+   height: 100%;
+   padding: 2rem;
+   background: var(--color-cool);
+}
+

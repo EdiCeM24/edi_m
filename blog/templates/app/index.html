@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | {% endblock title %}
+
+
+
+<div class="">
+    {% block content %}
+     <div class="product-item py-6 px-4">
+        {% for blog in products %}
+         
+         <div class="containers grid grid-cols-3 p-4">
+             <h1 class="text-gray-600 p-8 ml-16 hover:text-teal-900 font-semibold text-2xl">{{ product.title }}</h1>
+             
+             <a href="#" class="h-60 w-80">
+                 <img src="{{ blog.image.url }}" alt=""/>
+             </a>
+             <h3 class="block ml-16 p-8 py-4 ">{{ blog.slug }}</h3>
+             <h5 class="block ml-16 p-8 py-4 ">{{ blog.publish_date }}</h5>
+             <p class="block ml-16 p-8 py-4 ">{{ blog.content }}</p>
+         </div>
+        
+        {% endfor %}
+     </div>
+
+    {% endblock content %}
+</div>
