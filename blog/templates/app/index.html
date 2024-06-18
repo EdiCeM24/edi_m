@@ -8,19 +8,28 @@
 
 <div class="">
     {% block content %}
-     <div class="product-item py-6 px-4">
+     <div class="grid grid-cols-3 gap-4 sm:grid sm:grid-cols-3 -mt-48">
         {% for blog in products %}
          
-         <div class="containers grid grid-cols-3 p-4">
-             <h1 class="text-gray-600 p-8 ml-16 hover:text-teal-900 font-semibold text-2xl">{{ product.title }}</h1>
+         <ul class="Sm:border-4 w-full sm-[10px] md:border-[10px] rounded-xl gap-8">
+             <li class="block ml-8">
+                <h1 class="flex items-center justify-center mb-4 font-bold ">{{ blog.title }}</h1>
              
-             <a href="#" class="h-60 w-80">
-                 <img src="{{ blog.image.url }}" alt=""/>
-             </a>
-             <h3 class="block ml-16 p-8 py-4 ">{{ blog.slug }}</h3>
-             <h5 class="block ml-16 p-8 py-4 ">{{ blog.publish_date }}</h5>
-             <p class="block ml-16 p-8 py-4 ">{{ blog.content }}</p>
-         </div>
+                <a class="" href="#">
+                   <img src="{{ blog.image.url }}" alt="" class="sm:rounded-xl ml-2"/>
+                </a>
+                <div class="block items-center sm:ml-4 mt-4 sm:font-semibold">
+                  <h3 class="text-white">{{ blog.slug }}</h3>
+                  <p class="text-white">{{ blog.content }}</p>
+                  <h5 class="text-white">{{ blog.publish_date }}</h5>
+                </div>
+                
+                <div class="flex sm:flex-wrap sm:text-center sm:ml-0 mt-2 gap-2 uppercase text-gray-400 mb-2">
+                  <a class="bg-teal-700 border-2 rounded" href="#"download>Download</a>
+                  <a class="bg-yellow-600 border-2 rounded" href="#">view</a>
+                </div>
+             </li>
+          </ul>
         
         {% endfor %}
      </div>

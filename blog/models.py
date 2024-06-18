@@ -5,6 +5,10 @@ from django.contrib.auth.models import User
 
 class Blog(models.Model):
     
+    class NewManager(models.Model):
+        def get_query(self):
+            return super().get_queryset().filter(status='publish')
+    
     options = {
         ('draft', 'Draft'),
         ('publish', 'Published'),
@@ -18,7 +22,14 @@ class Blog(models.Model):
     author = models.ForeignKey(User, default=True, on_delete=models.CASCADE, related_name='blog_posts')
     status = models.CharField(max_length=20, choices=options, default='draft')
     
+
+class Post(models.Model):
+    title = models.CharField(max_length=255)
+    content = models.TextField()  
+    publish_date = models.DateTimeField(default=timezone.now)  
+    author = models.ForeignKey(User, default=True, on_delete=models.CASCADE, related_name='product')
     
+        
 
 class Video(models.Model):
     caption = models.CharField(max_length=255)
@@ -32,11 +43,5 @@ class Video(models.Model):
         return str(self.caption)
     
     
-class Post(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField()  
-    publish_date = models.DateTimeField(default=timezone.now)  
-    author = models.ForeignKey(User, default=True, on_delete=models.CASCADE, related_name='product')
-    
-    
+
     

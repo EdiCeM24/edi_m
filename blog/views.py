@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import Blog, Post, Video
 from .forms import SignupForm, LoginForm
+from django.contrib import messages
+from django.contrib.auth.forms import authenticate
+from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
+import requests
 
 
 #@login_required
@@ -24,28 +28,34 @@ def post(request):
 
 
 def signup(request):
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-        
-        if form.is_valid():
-            form.save()
-            
-            return redirect('/login/')
-    else:
-        form = SignupForm()    
+    form = SignupForm()
     
-    return render(request, 'app/signup.html', {
-        'form': form,
-    })   
+    if request.method == "POST":
+         form = SignupForm(request.POST)
+         if form.is_valid():
+             form.save()
+             return redirect('login')
+         
+    return render(request, 'app/signup.html', {'form': form})   
     
-    
-    
+      
 def login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        
-    return render(request, 'app/login.html')
+    form = LoginForm()
+    if request.method == "POST":
+        form = LoginForm(request, data=request.POST)
+        if form.is_valid():
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            
+            user = authenticate(request, username=username, password=password)
+            if User is not None:
+                auth.login(request, user)
+                return redirect('home')
+         
+    return render(request, 'app/login.html', {'form': form})
      
 
-
+def logout(request):
+    auth.logout(request)
+    return redirect('/login/')
 

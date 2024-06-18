@@ -34,4 +34,3 @@ class SignupForm(UserCreationForm):
         'placeholder': 'Confirm your password',
         'class': ''
     }))
-   

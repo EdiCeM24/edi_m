@@ -23,13 +23,15 @@ body {
    position: fixed;
    top: 0;
    left: 0;
+   right: 0;
    width: 100%;
-   z-index: 100;
+   z-index: 50;
    padding: 10px;
    align-items: center;
    justify-content: space-between;
    background: #ffffff;
 }
+
 @media screen and (max-width: 600px) {
    .myHeader {
       flex-wrap: wrap;
@@ -80,7 +82,7 @@ body {
 .myHeader a:hover {
    color: teal;
    opacity: 1;
-   transition: all 0.5s ease-in-out;
+   transition: all 4s ease-in-out;
 }
 .myHeader a:focus {
    content: '';
@@ -115,7 +117,7 @@ form button {
 /*------=====Section of the page=====-------*/
 
 .images {
-   background-image: url('/static/images/img_pics/coffee.jpg');
+   background-image: url('/static/assets/images/img_pics/flower.png');
    padding: 90px;
    align-items: center;
    margin-top: 70%;
@@ -124,14 +126,61 @@ form button {
    background-position: center;
    object-fit: cover;
    background-repeat: no-repeat;
-   background-size: 1150px;
+   background-size: 1350px;
    border-radius: 20px;
    color: rgb(22, 21, 21);
    height: 70%;
 }
 /*------=====Main Section of the page=====-------*/
-.product-item {
+.product-items {
+   display: block;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   list-style: none;
+   padding: 0;
+   border-radius: 10px;
+}
+.product-lists {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   list-style: none;
+   padding: 0;
+}
+.product-itemi {
+   flex: 1;
+   margin: 10px;
+   border: 2px solid rgb(252, 216, 198);
+   padding: 10px;
+   text-align: center;
+}
+.product-main {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+.product {
    display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.download-btn {
+   display: flex;
+   padding: 5px 10px;
+   text-decoration: none;
+   margin-bottom: 2rem;
+   background: #007bff;
+   color: aliceblue;
+   border-radius: 10px;
+}
+.downloadBtn {
+   padding: 5px 10px;
+   text-decoration: none;
+}
+.product-item a {
+   display: flex;
+}
+.imageView img {
+   border-radius: 10px;
 }
 .containers {
    background: var(--color-gown);
@@ -145,6 +194,11 @@ form button {
 /*------=====video Section=====-------*/
 .hone {
    display: inline;
+}
+/*-----=====Index.html page=====-----*/
+.container-blog {
+   font-size: 1.5rem;
+   color: #ffffff;
 }
 /*------=====F00ter Section of the page=====-------*/
 .foot {
